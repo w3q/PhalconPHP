@@ -122,9 +122,12 @@ class SecurityPlugin extends Plugin
         // Check if the Role have access to the controller (resource)
         $allowed = $acl->isAllowed($role, $controller, $action);
         if ($allowed != Acl::ALLOW) {
+            if($role != 'Guests') {
+                $this->flashSession->error("Permission denied. Log in as administrator.");
+            } else {
+                $this->flashSession->error("Please register or log in.");
+            }
 
-            // If he doesn't have access forward him to the index controller
-            $this->flash->error("You don't have access to this module");
             $dispatcher->forward(
                 [
                     'controller' => 'session',
@@ -132,7 +135,6 @@ class SecurityPlugin extends Plugin
                 ]
             );
 
-            // Returning "false" we tell to the dispatcher to stop the current operation
             return false;
         }
     }

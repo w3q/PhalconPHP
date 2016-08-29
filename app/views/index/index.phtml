@@ -1,8 +1,21 @@
 <?php
 
-echo "<h1>Hello!</h1>";
+echo "<h1>Hello visitor!</h1>";
+?>
+<div class="col-sm-6">
+    This page was created for testing my development skills in PHP. It is created in PhalconPHP framework which is written
+    as C extension for PHP and thanks to this fact provides great peformance for users and help developers develop their
+    websites quickly.
+</div>
 
+<div class="col-sm-6">
+    <h4>Thanks for visiting and let me know what do you think.</h4>
+    <span>Best regards,</span>
+    <h4>Michal</h4>
+</div>
+<?php
 if(!$auth) {
     echo $this->tag->linkTo("signup", "Sign Up Here!");
 }
+?>
 
