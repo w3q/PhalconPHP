@@ -1,0 +1,14 @@
+<h3>User profile</h3>
+<p>
+    <strong>Name: </strong>
+    <?php echo $user['name']; ?>
+</p>
+
+<p>
+    <strong>Email: </strong>
+    <?php echo $user['email']; ?>
+</p>
+
+<p>
+    <?php echo $this->tag->linkTo('session/logout', 'Logout') ?>
+</p>

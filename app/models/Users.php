@@ -11,4 +11,8 @@ class Users extends Model
 
 	public $email;
 
+	public $password;
+
+	public $isAdmin = 0;
+
 }

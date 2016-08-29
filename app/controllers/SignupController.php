@@ -18,16 +18,18 @@ class SignupController extends Controller
 		// Store and check for errors
 		$success = $user->save(
 			$this->request->getPost(),
-			array('name', 'email')
+			array('name', 'email', 'password')
 		);
 
 		if ($success) {
-			echo "Thanks for registering!";
+			$this->flashSession->success("Registration was successful, now you can log in!");
+			return $this->response->redirect('/session');
 		} else {
-			echo "Sorry, the following problems were generated: ";
+			$this->flashSession->error("Sorry, the following problems were generated: ");
 			foreach ($user->getMessages() as $message) {
-				echo $message->getMessage(), "<br/>";
+				$this->flashSession->error($message->getMessage());
 			}
+			return $this->response->redirect('/signup');
 		}
 
 		$this->view->disable();

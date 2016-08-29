@@ -1,5 +1,7 @@
 <h2>Sign using this form</h2>
 
+<?php $this->flashSession->output(); ?>
+
 <?php echo $this->tag->form('signup/register') ?>
 
 	<p>
@@ -10,6 +12,11 @@
 	<p>
 		<label for="name">E-Mail</label>
 		<?php echo $this->tag->textField("email") ?>
+	</p>
+
+	<p>
+		<label for="password">Password</label>
+		<?php echo $this->tag->textField("password") ?>
 	</p>
 
 	<p>

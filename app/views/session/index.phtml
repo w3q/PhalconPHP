@@ -1,0 +1,21 @@
+<?php $this->flashSession->output(); ?>
+
+<?php echo $this->tag->form('session/start') ?>
+<fieldset>
+    <div>
+        <label for="email">Username/Email</label>
+        <div>
+            <?php echo $this->tag->textField("email") ?>
+        </div>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <div>
+            <?php echo $this->tag->textField("password") ?>
+        </div>
+    </div>
+    <div>
+        <?php echo $this->tag->submitButton("Login") ?>
+    </div>
+</fieldset>
+</form>
